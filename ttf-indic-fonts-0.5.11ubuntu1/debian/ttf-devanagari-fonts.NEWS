@@ -1,0 +1,8 @@
+ttf-devanagari-fonts (1:0.5.5) unstable; urgency=low
+
+    The Aksharyogini font has been removed from this package as its license
+    failed to meet the Debian Free Software Guidelines.  It will be available
+    in the upcoming ttf-devanagari-nonfree-fonts package instead.
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Sat, 15 Aug 2009 13:59:12 -0400
+

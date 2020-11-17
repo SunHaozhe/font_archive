@@ -1,0 +1,177 @@
+Source: ttf-indic-fonts
+Build-Depends: debhelper (>= 7)
+Section: fonts
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian-IN Team <debian-in-workers@lists.alioth.debian.org>
+Uploaders: Jaldhar H. Vyas <jaldhar@debian.org>,
+           Kartik Mistry <kartik@debian.org>
+Homepage: http://debian-in.alioth.debian.org/
+Vcs-Svn: svn://svn.debian.org/debian-in/ttf-indic-fonts/trunk
+Vcs-Browser: http://svn.debian.org/wsvn/debian-in/ttf-indic-fonts/trunk
+Standards-Version: 3.9.1
+
+Package: ttf-indic-fonts
+Architecture: all
+Depends: ${misc:Depends},
+         ttf-indic-fonts-core (= ${source:Version}),
+         ttf-bengali-fonts (= ${source:Version}),
+         ttf-devanagari-fonts (= ${source:Version}),
+         ttf-gujarati-fonts (= ${source:Version}),
+         ttf-kannada-fonts (= ${source:Version}),
+         ttf-malayalam-fonts (= ${source:Version}),
+         ttf-oriya-fonts (= ${source:Version}),
+         ttf-punjabi-fonts (= ${source:Version}),
+         ttf-tamil-fonts (= ${source:Version}),
+         ttf-telugu-fonts (= ${source:Version})
+Description: Metapackage for free Indian language fonts
+ This metapackage merely depends on the various free Indian language font
+ packages available in Debian. Use this if you want fonts for every official
+ Indian language.
+
+Package: ttf-indic-fonts-core
+Architecture: all
+Depends: ${misc:Depends}
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Description: Core collection of free fonts for languages of India
+ This is a set of TrueType fonts released under the GNU General
+ Public License for various Indian languages. For each language a 
+ maximum of two fonts are provided in this package. For additional fonts, 
+ please install the ttf-$language-fonts packages, or the ttf-indic-fonts
+ metapackage to get all fonts installed.
+ .
+ Fonts shipped with this package are:
+ Bengali: Lohit Bengali, MuktiNarrow
+ Devanagari: gargi, Lohit Hindi 
+ Gujarati: Lohit Gujarati, Rekha
+ Kannada: Kedage (Regular and Bold), Malige (Regular and Bold)
+ Malayalam: Meera, Rachana
+ Oriya: utkal
+ Tamil: Lohit Tamil
+ Telugu: Pothana2000, Venama
+
+Package: ttf-bengali-fonts
+Architecture: all
+Depends: ${misc:Depends}
+Provides: ttf-bangla-fonts
+Recommends: ttf-indic-fonts-core
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Description: Free TrueType fonts for the Bengali language
+ Fonts for the Bengali language which is spoken in the Indian state of West
+ Bengal, the nation of Bangladesh and adjoining areas.  The Bengali script is
+ also used for writing Assamese which is primarily spoken in the Indian state
+ of Assam.
+
+Package: ttf-devanagari-fonts
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: ttf-indic-fonts-core
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Description: Free TrueType fonts for languages using the Devanagari script
+ Fonts for languages that use the Devanagari script in writing. This package
+ has fonts for Hindi, Kashmiri, Konkani, Marathi, Maithili, Nepali, Sanskrit,
+ and Sindhi languages.
+
+Package: ttf-gujarati-fonts
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: ttf-indic-fonts-core
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Description: Free TrueType fonts for the Gujarati language
+ Fonts for the Gujarati language which is primarily spoken in the Indian state
+ of Gujarat.
+
+Package: ttf-kannada-fonts
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: ttf-indic-fonts-core
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Description: Free TrueType fonts for the Kannada language
+ Fonts for the Kannada language which is primarily spoken in the Indian state
+ of Karnataka.
+
+Package: ttf-kannada-fonts-udeb
+Package-Type: udeb
+Section: debian-installer
+Provides: ttf-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: Free TrueType fonts for the Kannada language (udeb)
+ This package provides Kannada fonts for use with the GTK+ frontend of
+ debian-installer.
+
+Package: ttf-malayalam-fonts
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: ttf-indic-fonts-core
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Description: Free TrueType fonts for the Malayalam language
+ Fonts for the Malayalam language which is primarily spoken in the Indian
+ state of Kerala.
+
+Package: ttf-malayalam-fonts-udeb
+Package-Type: udeb
+Section: debian-installer
+Provides: ttf-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: Free TrueType fonts for the Malayalam language (udeb)
+ This package provides Malayalam fonts for use with the GTK+ frontend of
+ debian-installer.
+
+Package: ttf-oriya-fonts
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: ttf-indic-fonts-core
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Description: Free TrueType fonts for the Oriya language
+ Fonts for the Oriya language which is primarily spoken in the Indian state of
+ Orissa.
+
+Package: ttf-punjabi-fonts
+Architecture: all
+Depends: ${misc:Depends}
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Description: Free TrueType fonts for the Punjabi language
+ Fonts for the Punjabi language which is spoken in the Punjab region of India
+ and Pakistan. Fonts in this package use the Gurmukhi script. In Pakistan,
+ Punjabi is written using Arabic script. The Devanagari script is also
+ sometimes used in India.
+
+Package: ttf-tamil-fonts
+Architecture: all
+Depends: ${misc:Depends}
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Recommends: ttf-indic-fonts-core
+Description: Free TrueType fonts for the Tamil language
+ Fonts for the Tamil language which is primarily spoken in the Indian state of
+ Tamil Nadu and in Sri Lanka.
+
+Package: ttf-tamil-fonts-udeb
+Package-Type: udeb
+Section: debian-installer
+Provides: ttf-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: Free TrueType fonts for the Tamil language (udeb)
+ This package provides Tamil fonts for use with the GTK+ frontend of
+ debian-installer.
+
+Package: ttf-telugu-fonts
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: ttf-indic-fonts-core
+Suggests: xserver-xfree86 | xserver | xfs, x-ttcidfont-conf
+Description: Free TrueType fonts for the Telugu language
+ Fonts for the Telugu language which is primarily spoken in the Indian state
+ of Andhra Pradesh.
+
+Package: ttf-telugu-fonts-udeb
+Package-Type: udeb
+Section: debian-installer
+Provides: ttf-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: Free TrueType fonts for the Telugu language (udeb)
+ This package provides Telugu fonts for use with the GTK+ frontend of
+ debian-installer.

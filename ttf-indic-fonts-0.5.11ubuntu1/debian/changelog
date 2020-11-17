@@ -1,0 +1,682 @@
+ttf-indic-fonts (1:0.5.11ubuntu1) natty; urgency=low
+
+  * Resynchronise with Debian.  Remaining changes:
+    - Ship minimal debian/rules file.
+    - ttf-malayalam/90-ttf-malayalam-fonts.conf: DTD fixes.
+    - Split out a maximum of two fonts (the preferred fonts for serif and
+      sans-serif) per language into a ttf-indic-fonts-core package, with the
+      exception of Punjabi, which only ships the two preferred fonts for
+      that language, so a split doesn't make sense.
+    - Ship all fontconfig files (except for Punjabi) in the
+      ttf-indic-fonts-core package, together with the fonts.
+  * Fix ttf-malayalam-fonts-udeb and ttf-tamil-fonts-udeb to not be empty
+    packages (broken by switch to minimal debian/rules file).
+  * Fix case of ${misc:Depends} in ttf-indic-fonts-core's dependencies.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 08 Nov 2010 12:48:13 +0000
+
+ttf-indic-fonts (1:0.5.11) unstable; urgency=medium
+
+  * Added udeb ttf-kannada-fonts-udeb for Kannada Debian Installer
+    (Closes: #593220)
+  * Added udeb ttf-kannada-fonts-udeb for Telugu Debian Installer
+    (Closes: #593221)
+  * debian/control:
+    + Bumped Standards-Version to 3.9.1 (no changes needed)
+    + Moved XC-Package-Type to Package-Type as dpkg-dev recognize it now
+    + Added "(udeb)" in short-description for udebs
+    + Removed Conflicts: ttf-indic-fonts (<< 1:0.4.1) for some binary packages
+      as we don't have 0.4.1 in Debian anymore
+    + Added missing Depends: ${misc:Depends} for udebs
+  * Added README.Debian for change of removed verisoned-conflict for
+    ttf-indic-fonts
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Thu, 26 Aug 2010 18:10:47 +0530
+
+ttf-indic-fonts (1:0.5.10ubuntu1) maverick; urgency=low
+
+  * Merge from Debian unstable, remaining changes:
+    - ship minimal debian/rules file
+    - ttf-malayalam/90-ttf-malayalam-fonts.conf: DTD fixes
+    - split out a maximum of two fonts (the preferred fonts for serif
+      and sans-serif) per language into a ttf-indic-fonts-core package, with
+      the exception of Punjabi, which only ships the two preferred fonts for
+      that language, so a split doesn't make sense.
+    - ship all fontconfig files (except for Punjabi) in the
+      ttf-indic-fonts-core package, together with the fonts.
+    - change package format to 3.0 (native)
+  * Dropped changes:
+    - use quilt for managing patches; no reason for quilt in a native package,
+      these changes should be included directly in the source and quilt
+      handling was missing from the package anyway.
+    - DTD fixes for fontconfig files: merged in Debian.
+    - debian/ttf-indic-fonts-core.preinst: drop, the defoma transition is
+      done now
+  * Correct copyright information in debian/ttf-indic-fonts-core.copyright
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Fri, 18 Jun 2010 00:23:17 +0000
+
+ttf-indic-fonts (1:0.5.10) unstable; urgency=low
+
+  * debian/rules:
+    + Fixed installation of 90-ttf-oriya-fonts.conf in conf.avail
+  * ttf-malayalam/90-ttf-malayalam-fonts.conf:
+    + Fixed rule for Meera font, Thanks to Jindřich Makovička
+      <makovick@gmail.com> and Theppitak Karoonboonyanan <thep@debian.org>
+      (Closes: #583490)
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Fri, 28 May 2010 09:28:44 +0530
+
+ttf-indic-fonts (1:0.5.9) unstable; urgency=low
+
+  [Kartik Mistry]
+  * ttf-punjabi/lohit_pa.ttf:
+    + Updated to version 2.4.4
+  * ttf-kannada/lohit_kn.ttf:
+    + Updated to version 2.4.5
+  * debian/control:
+    + Wrapped Uploaders field
+    + Noted that ttf-indic-fonts is metapackage in long description
+    + Wrapped long description for some bianries
+    + Updated long description for ttf-devanagari-fonts package
+  * Updated package to use source format 3.0 (native)
+  * Make the fontconfig files be valid against the dtd. Also add fallback font
+    entries and block TAM* and TSC* fonts from being picked by fontconfig, as
+    they have a non-standard legacy encoding instead of Unicode. Patch from
+    Ubuntu package 1:0.5.8ubuntu2, Thanks!
+  * debian/*.copyright:
+    + Updated as per DEP-5 specifications
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Thu, 27 May 2010 13:56:46 +0530
+
+ttf-indic-fonts (1:0.5.8ubuntu2) lucid; urgency=low
+
+  * debian/ttf-indic-fonts-core.preinst:
+    + Fix defoma config file removal. (LP: #563771)
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Thu, 15 Apr 2010 14:33:02 +0200
+
+ttf-indic-fonts (1:0.5.8ubuntu1) lucid; urgency=low
+
+  * Merge from debian unstable, changes:
+   - use quilt for managing patches
+   - ship minimal debian/rules file
+   - add patch 01-fix-fontconfig-files.patch to make the fontconfig files
+     be valid against the dtd. Also add fallback font entries and block
+     TAM* and TSC* fonts from being picked by fontconfig, as they have
+     a non-standard legacy encoding instead of Unicode.
+   - split out a maximum of two fonts (the preferred fonts for serif
+     and sans-serif) per language into a ttf-indic-fonts-core package, with
+     the exception of Punjabi, which only ships the two preferred fonts for
+     that language, so a split doesn't make sense.
+   - ship all fontconfig files (except for Punjabi) in the ttf-indic-fonts-core
+     package, together with the fonts.
+  * change package format to 3.0 (native)
+
+ -- Arne Goetje <arne@ubuntu.com>  Tue, 13 Apr 2010 12:02:34 +0800
+
+ttf-indic-fonts (1:0.5.8) unstable; urgency=low
+
+  [Kartik Mistry]
+  * debian/*.preinst:
+    + Remove obsolete fontconfig files renamed since 0.5.5, Thanks to
+      Theppitak Karoonboonyanan <thep@debian.org> (Closes: #542897)
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Mon, 15 Mar 2010 23:31:18 +0530
+
+ttf-indic-fonts (1:0.5.7) unstable; urgency=low
+
+  [Kartik Mistry]
+  * ttf-malayalam/Meera-04.ttf:
+    + Updated to latest version
+  * debian/control:
+    + Set Homepage to alioth project until we get older domain back
+      (Closes: #552289)
+    + Updated Standards-Version to 3.8.4
+  * Updated all Lohit fonts to available latest versions
+  * debian/*.defoma-hints, debian/control, debian/rules, debian/*.preinst:
+    + Removed obsolete defoma support, Thanks to Christian Perrier
+      <bubulle@debian.org> for patch (Closes: #561408)
+  * debian/rules:
+    + Fixed non standard /etc/fonts/ directory usage for *.conf files, Thanks
+      to Osamu Aoki <osamu@debian.org> for bug report (Closes: #496804)
+    + Added dh_link rule for *.links file usage
+  * debian/ttf-devanagari-fonts.NEWS:
+    + Fixed spelling mistake
+  * debian/*.links:
+    + Added files for all packages to link conf files correctly
+
+  [ Jaldhar H. Vyas ]
+  * ttf-malayalam: Updated fontconfig.  Thanks to Santhosh Thottingal
+  * ttf-malayalam: Proper file name for AnjaliOldLipi font in defoma-hints.
+    Thanks Jakob Bohm. (Closes: #551524)
+
+ -- Kartik Mistry <kartik@debian.org>  Fri, 12 Feb 2010 23:50:00 +0530
+
+ttf-indic-fonts (1:0.5.6) unstable; urgency=low
+
+  [Kartik Mistry]
+  * Removed mithila.ttf font and binary from package as its license was unclear
+  * debian/control:
+    + Updated to Standards-Version 3.8.3 (no changes needed)
+    + Adjusted some package descriptions
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Mon, 17 Aug 2009 10:32:20 +0530
+
+ttf-indic-fonts (1:0.5.5) unstable; urgency=low
+
+  [Kartik Mistry]
+  * debian/*.copyright:
+    + Fixed for Lohit fonts upstream location
+    + Updated license for Lohit fonts, its GPL-2 only with font exception
+    + Some minor whitespace cleanups
+    + [Lintian] Don't point to symlinked license text
+  * debian/control:
+    + Updated Standards-Version to 3.8.2
+    + Updated extented descriptions for udebs
+    + Updated debhelper dependency to 7
+  * Updated lohit fonts to latest version 2.4.1
+  * debian/*.prerm:
+    + Removed useless empty prerm maintainer scripts
+  * debian/rules:
+    + Used dh_prep instead of old dh_clean -k
+    + Added -n option in dh_installdefoma to not modify post* scripts
+
+  [Praveen Arimbrathodiyil]
+  * Added priotity of 90 to fontconfig configuration files
+
+  [ Jaldhar H. Vyas ]
+  * ttf-devanagari-fonts: AksharYogini removed as, alas, it is not free
+    (Closes: #522490)
+  * Added new package ttf-maithili-fonts for Maithili language written in
+    Mithilakshara or Tirhuta script.
+  * debian/*.postinst: removed as they are empty now.
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Sat, 15 Aug 2009 15:05:47 -0400
+
+ttf-indic-fonts (1:0.5.4ubuntu2) intrepid; urgency=low
+
+  * debian/rules, debian/control: revert the lzma change to make the package
+    build.
+    .
+    If lzma compression is desired, the udebs need to be built normally (no
+    lzma-udeb) and the debs with -- -Zlzma.
+
+ -- Daniel Holbach <daniel.holbach@ubuntu.com>  Thu, 28 Aug 2008 10:46:41 +0200
+
+ttf-indic-fonts (1:0.5.4ubuntu1) intrepid; urgency=low
+
+  * Merge from debian unstable, remaining changes: (LP: #259347)
+    - ttf-indic-fonts-core package with selected fonts for the Live CD.
+  * build with lzma compression (Pre-Depends: dpkg >= 1.14.12ubuntu3)
+
+ -- Arne Goetje <arne@ubuntu.com>  Fri, 04 Jul 2008 13:24:38 +0100
+
+ttf-indic-fonts (1:0.5.4) unstable; urgency=high
+
+  [Praveen Arimbrathodiyil]
+  * ttf-malayalam:
+    + Added updated version of AnjaliOldLipi.ttf by Hiran 
+    + Removed old version AnjaliOldLipi-0.730.ttf
+    + MalOtf.ttf is updated and renamed to Kalyani121.ttf by Hiran
+    + This makes both fonts compatible with the rest of the 04 series fonts 
+    + and fixes rendering bugs (consonant+chandrakala+YA+MA combination)
+  * debian/ttf-malayalam-fonts.copyright:
+    + Fixed version number in font names
+    + Added new download location for AnjaliOldLipi font
+    + Added download location for Kalyani font
+  * debian/ttf-malayalam-fonts.defoma-hints:
+    + Updated for change in fontname for AnjaliOldLipi.ttf and Kalyani121.ttf
+  * ttf-malayalam/ttf-malayalam-fonts.conf:
+    + Updated for fixing small sizes for Meera_04.ttf
+    + Default sans font is changed to Meera
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Mon,  19 May 2008 21:09:57 -0800
+
+ttf-indic-fonts (1:0.5.3ubuntu1) intrepid; urgency=low
+
+  [Sri Ramadoss M]
+  * Merge from Debian unstable. Remaining Ubuntu changes:
+    * debian changes to ttf-malayalam-fonts.defoma-hints verified
+    * debian changes to rules verified
+  [Arne Goetje]
+  * Change the default font for Malayalam to be Rachana and move it into
+    ttf-indic-fonts-core. Updated defoma hints accordingly.
+
+ -- Sri Ramadoss M <amachu@ubuntu.com>  Sat, 17 May 2008 08:55:17 +0530
+
+ttf-indic-fonts (1:0.5.3) unstable; urgency=high
+
+  [Kartik Mistry]
+  * debian/ttf-malayalam-fonts.copyright:
+    + Fixed license text with reference to Rachana font exception
+  * debian/changelog:
+    + Added missing bugnumbers to Praveen's changelog entries
+  [Praveen Arimbrathodiyil]
+  * ttf-malayalam:
+    + Removed duplicate version of Rachana_w01.ttf (Closes: #478488)
+  * debian/ttf-malayalam-fonts.copyright:
+    + Removed upstream authors, copyright and license for removed font
+  * debian/ttf-malayalam-fonts.defoma-hints:
+    + Removed hints for deleted font
+  * debian/rules
+    + Changed font used for creating udeb to Rachana_04.ttf (Closes: #478490)
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Wed,  7 May 2008 12:42:57 +0530
+
+ttf-indic-fonts (1:0.5.2) unstable; urgency=low
+
+  [Kartik Mistry]
+  * debian/*.preinst:
+    + [Lintian] Removed files as it were empty and has no use
+  * ttf-malayalam:
+    + Added new fonts Dyuthi3.ttf, RaghuMalayalamSans2.ttf,
+      Meera_04.ttf, suruma2.ttf and Rachana_04.ttf (Closes: #368280)
+  * debian/debian/ttf-malayalam-fonts.copyright:
+    + Updated upstream authors, copyright and license for newly
+      added fonts
+  * debian/debian/ttf-malayalam-fonts.defoma-hints:
+    + Updated for new fonts
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Tue,  8 Apr 2008 12:29:57 +0530
+
+ttf-indic-fonts (1:0.5.1) unstable; urgency=low
+
+  [Kartik Mistry]
+  * ttf-oriya-fonts/utkal.ttf:
+    + Don't make it executable, fixed lintian warning
+  * debian/*.copyright:
+    + Separated copyright from license section
+    + Updated download location for Lohit fonts
+    + Updated authors list
+    + Updated links of GPL licenses in Debian
+    + Do not add Comma after copyright year
+  * debian/control:
+    + Updated Standards-Version to 3.7.3
+    + Added VCS-* fields
+  * debian/rules:
+    + Fixed dh_install for ttf-malayalam-fonts package
+    + Removed commented lines
+  * Added Samyak-fonts for Gujarati, Devanagari, Oriya
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Thu, 7 Feb 2008 15:32:57 +0530
+
+ttf-indic-fonts (1:0.5.0-0ubuntu1) gutsy; urgency=low
+
+  * split package into a ttf-indic-fonts-core and the rest of the
+    indic language packages.
+  * The ttf-indic-fonts-core package includes one font for each
+    language, namely: MuktiNarrow*, lohit_hi, lohit_gu, Malige-n,
+    Malige-b, MalOtf, utkal, lohit_pa, lohit_ta and Vemana.
+
+ -- Arne Goetje <arne@ubuntu.com>  Wed, 19 Sep 2007 21:53:32 +0800
+
+ttf-indic-fonts (1:0.5.0) unstable; urgency=high
+
+  [Kartik Mistry]
+  * Updated *.copyright according to standard and more clear copyright formats
+  * debian/control: ttf-indic-fonts now depends on
+    ttf-*-fonts (= ${source:Version}) (Closes: #424432)
+  * debian/rules: cleanup build target, we don't build anything
+  * debian/*.postinst, *.preinst: removed useless empty lines
+  * debian/ttf-gujarati-fonts.defoma-hints: downgrade priority of aakar and
+    rekha fonts to not set them as default fonts for some applications
+  * ttf-gujarati-fonts: New upstream release for Aakar and Rekha fonts, Fixed
+    non-standard encoding (Closes: #427887)
+  * ttf-gujarati-fonts: Added padmaa.ttf, padmaa-Bold.1.1.ttf,
+    removed old padmaa-Bold-0.5.ttf, updated related files
+  * ttf-oriya-fonts: replace utkal font for fixing other fonts copyright issue,
+    Thanks to Rahul Bhalerao <rahul_pb_india@yahoo.com> (Closes: #428024)
+  * ttf-devanagari-fonts: Updated Chandas, Kalimati, and Samanata fonts so 
+    they don't violate other fonts copyrights (Closes: #427885)
+  * ttf-malayalam-fonts: Updated Rachana font so it doesn't violate other 
+    fonts copyrights.  
+
+  [Soumyadip Modak]
+  * ttf-devanagari-fonts: Updated Gargi to version 1.9
+  * ttf-devanagari-fonts: Added the Sarai font
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Thu, 16 Aug 2007 02:01:31 -0400
+
+ttf-indic-fonts (1:0.4.9) unstable; urgency=low
+
+  [Soumyadip Modak]
+  * ttf-bengali-fonts: Updated Lohit Bengali font
+  * ttf-devanagari-fonts: Added the Akshar Yogini font; updated Lohit Devanagari.
+  * ttf-gujarati-fonts: Updated Lohit Gujarati.
+  * ttf-kannada-fonts: Added Lohit Kannada font. (Closes: #419028)
+  * ttf-oriya-fonts: Added Lohit Oriya font. (Closes: #419027)
+  * ttf-punajabi-fonts: Updated Lohit Punjabi
+  * ttf-tamil-fonts: Updated Lohit Tamil.
+  * ttf-telugu-fonts: Added Lohit Telugu font. (Closes: #419030)
+  [Kartik Mistry]
+  * Updated debhelper compability to 5, debian/compat added
+  * debian/control: minor cleanups
+  [ Jaldhar H. Vyas ]
+  * ttf-devanagari-fonts: Updated Chandas to 1.2 and updated auxillary files accordingly.
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Mon,  7 May 2007 02:29:11 -0400
+
+ttf-indic-fonts (1:0.4.8) unstable; urgency=low
+
+  [Soumyadip Modak]
+  * Major update and bugfix release
+  * Updated Gargi font (Closes: #353439)
+  * Added AnjaliOldLipi (Closes: #385990, #395280)
+  * Updated Lohit fonts with newer versions (Closes: #353438)
+  * ttf-telugu-fonts package updated with newer fonts Pothana and Vemana 
+    (Closes: #396850)
+  * Added fontconfig config files in etc/fonts/conf.d. Fontconfig should now
+    automatically detect appropriate fonts for each Indic locale
+  * Added the requested fonts (nakula and sahadeva) (Closes: #404692)
+  * Rachana.otf renamed to Rachana.ttf
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Wed, 11 Jan 2007 00:11:47 +0530
+
+ttf-indic-fonts (1:0.4.7.4) unstable; urgency=low
+
+  * Non-maintainer upload to fix a regression introduced in last upload
+  * Include the Rachana_w01.otf font in ttf-malayalam-fonts. It replaces
+    the previous TTF font but the package build rules wre only installing
+    *.ttf files, not *.otf. Closes: #404540
+
+ -- Christian Perrier <bubulle@debian.org>  Tue, 26 Dec 2006 09:03:58 +0100
+
+ttf-indic-fonts (1:0.4.7.3) unstable; urgency=medium
+
+  * Non-maintainer upload for D-I purposes (hence bumped urgency)
+  * Use the new version of the Rachana Malayalam font (namely Rachana_w01.otf)
+    Closes: #403404
+  
+ -- Christian Perrier <bubulle@debian.org>  Sun, 17 Dec 2006 09:09:15 +0100
+
+ttf-indic-fonts (1:0.4.7.2) unstable; urgency=low
+
+  * Non-maintainer upload for D-I purposes
+  * Generate a udeb for ttf-malayalam-fonts, for the purpose of the graphical
+    version of the Debian installer. Closes: #358226
+
+ -- Christian Perrier <bubulle@debian.org>  Sat,  9 Dec 2006 16:40:53 +0100
+
+ttf-indic-fonts (1:0.4.7.1) unstable; urgency=low
+
+  * Non-maintainer upload for D-I purposes
+  * Generate a udeb for ttf-tamil-fonts, for the purpose of the graphical
+    version of the Debian installer. Closes: #358226
+
+ -- Christian Perrier <bubulle@debian.org>  Mon, 12 Jun 2006 22:55:04 +0200
+
+ttf-indic-fonts (1:0.4.7) unstable; urgency=low
+
+  [Soumyadip Modak]
+  * ttf-devanagari-fonts: Added two Nepalinux fonts kalimati.otf and 
+    samanata.ttf.  Moved kalimati.otf to kalimati.ttf
+  * ttf-kannada-fonts: Removed the Sampige font and instead added the Malige 
+    and Kedage fonts as requested by Hari Prasad Nadig <hpnadig@gmail.com>
+  * ttf-malayalam-fonts: Removed RachanaMedium.ttf and put in Racotf04.ttf as 
+    requested by Vivek Varghese Cherian <vivekcherian@gmail.com>
+  * Change in maintainer address
+  * Follows Debian Policy Standard Version 3.6.2
+
+ -- Debian-IN Team <debian-in-workers@lists.alioth.debian.org>  Sun, 15 Jan 2006 16:25:00 +0530
+
+ttf-indic-fonts (1:0.4.6) unstable; urgency=low
+
+  * Font packages originally in ttf-indic-fonts package (before 1:0.3.7) had
+    incorrect defoma.hints, pointing to the original location. Fixed according 
+    to the patches sent by Jakob Bohm <jbj@image.dk> (Closes: #324373)
+  * Added the Chandas 1.1 font from http://chandas.cakram.org/
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Sun, 04 Sep 2005 10:04:00 +0530
+
+ttf-indic-fonts (1:0.4.5) unstable; urgency=low
+
+  * Lohit fonts renamed in debian/*.defoma.hints to avoid problems with Defoma
+    (Closes: #318854)
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Tue, 26 Jul 2005 14:35:00 +0530
+
+ttf-indic-fonts (1:0.4.4) unstable; urgency=high
+
+  * fix syntax errors in debian/*.defoma-hints.  (Closes: #304371, #304424)
+    Although the bugs were reported as normal severity, this make the 
+    packages unusable so urgency set to high.
+  * split up debian/copyright and distributed the information into each
+    of the font packages.
+  * ttf-malayalam-fonts: removed MalOtf.ttf as it is a duplicate of 
+    malayalam.ttf.  Added RachnaMedium.ttf instead.
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Wed, 13 Apr 2005 18:55:58 +0530
+
+ttf-indic-fonts (1:0.4.3) unstable; urgency=medium
+
+  * ttf-telugu-fonts: font names and families should be vemana2000 and
+    pothana2000
+  * renamed debian/*.hints to debian/*.defoma-hints so the hints files are
+    added to the packages.
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Mon, 11 Apr 2005 22:30:28 -0400
+
+ttf-indic-fonts (1:0.4.2) unstable; urgency=low
+
+  * Updated utkal.ttf font in ttf-oriya-fonts package.
+  * Updated Gargi font in ttf-devanagari-fonts package.
+  * Changed the priorities of a few fonts in the respective hints file.
+    Hopefully this will enable those fonts to be selected over other fonts,
+    for the respective languages (Bengali, Devanagari, Punjabi, Telugu and
+    Gujarati).
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Thu, 7 Apr 2005 00:33:00 +0530
+
+ttf-indic-fonts (1:0.4.1) unstable; urgency=low
+
+  * Splitted the ttf-indic-fonts package into smaller units :
+    ttf-devanagari-fonts, ttf-gujarati-fonts, ttf-punjabi-fonts,
+    ttf-oriya-fonts, ttf-kannada-fonts and ttf-telugu-fonts
+  * Renamed ttf-bangla-fonts to ttf-bengali-fonts.
+  * ttf-indic-fonts is now a metapackage that installs all the other fonts
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Tue, 5 Apr 2005 09:01:00 +0530
+
+ttf-indic-fonts (1:0.4.0) unstable; urgency=low
+
+  * Replaced Tikkana font with the updated Pothana2000 font, since Tikkana is
+    not Unicode compliant (Closes: #302110)
+  * Added the Vemana font for Telugu
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Sat,  2 Apr 2005 00:13:32 +0530
+
+ttf-indic-fonts (1:0.3.9) unstable; urgency=low
+
+  * Added the Tikkana font in place of the Pothana font, and made appropriate
+    changes to files under the debian directory (Closes: #292744)
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Sun, 30 Jan 2005 23:02:00 +0530
+
+ttf-indic-fonts (1:0.3.8) unstable; urgency=high
+
+  * Moved ttf-bengali fonts directory to ttf-bangla, ttf-bangla-fonts should
+    now contain the fonts instead of being an empty package
+  * Changed debian/rules to reflect the new directory structure
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Wed, 26 Jan 2005 23:26:00 +0530
+
+ttf-indic-fonts (1:0.3.7) unstable; urgency=low
+
+  * Added epoch to deal with ttf-malayalam-fonts, and ttf-tamil-fonts, 
+    different versioning scheme.
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Sat,  1 Jan 2005 12:48:29 -0500
+
+ttf-indic-fonts (0.3.6) unstable; urgency=low
+
+  * Corrected mistake in debian/rules which cause fonts to be copied 
+    into the wrong packages.
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Fri, 31 Dec 2004 17:08:54 -0500
+
+ttf-indic-fonts (0.3.5) unstable; urgency=low
+
+  * Merged the ttf-bangla-fonts, ttf-malayalam-fonts and ttf-tamil-fonts into
+    the ttf-indic-fonts source package
+  * Appropriate information added to control, changelog and copyright files
+  * rules file modified to reflect the directory structure of the source
+    package
+  * Appropriate postinst files added
+ 
+ -- Soumyadip Modak <soumyadip@softhome.net>  Fri, 31 Dec 2004 23:48:00 +0530
+
+ttf-indic-fonts (0.3.4) unstable; urgency=low
+
+  * Added aakar Medium Gujarati font from Utkarsh
+  * Added Lohit Gujarati, Hindi, and Panjabi fonts from Red Hat
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Thu,  2 Dec 2004 17:48:32 -0500
+
+ttf-indic-fonts (0.3.3) unstable; urgency=low
+
+  * Replaced saab.ttf with an older font Saab.ttf and removed saab_bold.ttf
+    (Closes: #264960)
+  * ttf-bangla-fonts is soon to migrate to testing (Closes: #272854)
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Tue, 28 Sep 2004 02:32:45 +0530
+
+ttf-indic-fonts (0.3.2) unstable; urgency=low
+
+  * Added the updated saab.ttf font
+  * New addition: saab_bold.ttf font
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Sun, 01 Aug 2004 11:38:15 +0530
+
+ttf-indic-fonts (0.3.1) unstable; urgency=low
+
+  * Added the Pothana2000 font, after being regenerated as an installable
+    font. (Closes: #254246)
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Sun, 11 Jul 2004 12:16:03 +0530
+
+ttf-indic-fonts (0.3.0) unstable; urgency=low
+
+  * Changed the Suggests field in control to xserver-xfree86 | xserver | xfs
+  * Added information for utkalm font in ttf-indic-fonts.hints
+  * Changed Location field for Padmaa-Bold to English Gujarati from English
+    Devanagari
+  * Changed Family and FontName of Gargi font from Gargi-1.3-r3 to Gargi
+  * Renamed Saab.otf to Saab.ttf
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Thu, 08 Jul 2004 10:07:50 +0530
+
+ttf-indic-fonts (0.2.9) unstable; urgency=low
+
+  * Added the Gargi font, after clarifications regarding the presence of
+    glyphs in positions U+200C and U+200D (Closes: #254242)
+  * Added the Rekha font for Gujarati (Closes: #257158)
+  * Added utkalm font for Oriya.
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Sat, 03 Jul 2004 12:26:52 +0530
+
+ttf-indic-fonts (0.2.7) unstable; urgency=low
+
+  * Removed the Pothana2000 font for non-free license
+  * Removed Gargi font due to the presence of nonsensical glyphs in code
+    positions U+200C and U+200D, which can potentially interfere with the
+    rendering
+  * Removed the FreeGurmukhiSerif font.
+  * Added the Saab font.
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Tue, 22 Jun 2004 10:48:29 +0530
+
+ttf-indic-fonts (0.2.6) unstable; urgency=low
+
+  * Added the Pothana2000 and Sampige fonts for the Telugu and Kannada
+    languages respectively.
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Thu, 20 May 2004 00:02:19 +0530
+
+ttf-indic-fonts (0.2.5) unstable; urgency=low
+
+  * Corrections made to control. 
+  * Recommends line should read ttf-malayalam-fonts instead of
+    ttf-malayalam-fons.
+  * Suggests line should read x-ttcidfont-conf instead of xttcidfont-conf.
+  * Updated control file to fix typos (Closes: #249580)
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Tue, 18 May 2004 23:58:14 +0530
+
+ttf-indic-fonts (0.2.4) unstable; urgency=low
+
+  * Updated the path of installation of the ttf fonts in debian/rules
+  * Updated changelog to reflect the changes left undocumented in the last
+    release.
+  * Updated information about the new (Gurmukhi) font in ttf-indic-fonts.hints
+    file.
+  * Changed the changelog file to reflect the new style.
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Wed, 05 May 2004 21:43:33 +0530 
+
+ttf-indic-fonts (0.2.3) unstable; urgency=low
+
+  * Removed the GurSerif font as requested by the PunLinux team. Added
+    the FreeGurmukhiSerif font in its place.
+  * Changed the name of the defoma hints file to ttf-indic-fonts.hints
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Mon, 03 May 2004 23:38:29 +0530
+
+ttf-indic-fonts (0.2.2) unstable; urgency=low
+
+  * Removed the Malayalam, MalOtf and AkrutiMal2 fonts from the package as they
+    are contained in ttf-malayalam-fonts package.
+  * Changed name of package to ttf-indic fonts.
+  
+ -- Soumyadip Modak <soumyadip@softhome.net>  Tue, 16 Mar 2004 23:43:20 +0530
+
+ttf-indic (20040315-0.2.1) unstable; urgency=low
+
+  * Added the GurSerif font for Gurmukhi script released under the GPL by the
+    PunLinux team.
+    
+ -- Soumyadip Modak <soumyadip@softhome.net>  Mon, 15 Mar 2004 21:34:56 +0530
+
+ttf-indic (20040217-0.2.1) unstable; urgency=low
+
+  * Change in maintainer after Jaldhar H. Vyas turned over the maintanence of
+    the ttf-indic package to Soumyadip Modak
+
+ -- Soumyadip Modak <soumyadip@softhome.net>  Tue, 17 Feb 2004 21:10:34 +0530
+ 
+ttf-indic (20040202-0.2) unstable; urgency=low
+
+  * Whoops that should be ttf-tamil-fonts and ttf-bangla-fonts in the 
+    dependencies.
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Mon,  2 Feb 2004 01:48:34 -0500
+
+ttf-indic (20040202-0.1) unstable; urgency=low
+
+  * Removed the Likhan, Mukti, and Akaash fonts as they  are contained 
+    in Ramakrishnan Muthuswamys' ttf-bangla-fonts package which has been
+    added to the dependencies (recommends.)
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Mon,  2 Feb 2004 01:11:42 -0500
+
+ttf-indic (20040107-0.1) unstable; urgency=low
+
+  * Removed the akruti fonts as they are contained in Ganesan 
+    Rajagopals' ttf-tamil-fonts package which has been added to the 
+    dependencies (recommends.)
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Wed,  7 Jan 2004 22:03:12 -0500
+
+ttf-indic (20031013-0.1) unstable; urgency=low
+
+  * Added Padmaa and Gargi fonts
+  * Removed Raghu and Sampige fonts.
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Mon, 13 Oct 2003 14:05:41 -0400
+
+ttf-indic (20030805-0.1) unstable; urgency=low
+
+  * Initial non-release.
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Tue,  5 Aug 2003 23:55:32 -0400
+

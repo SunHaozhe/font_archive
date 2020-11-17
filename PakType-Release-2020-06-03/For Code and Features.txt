@@ -1,0 +1,4 @@
+Please visit following URLs:
+For font feature charts: http://paktype.sourceforge.net/features.html#font-features
+For font source code: http://paktype.sourceforge.net/download.php#download
+Check Sample (works best in FireFox and Chrome): https://svn.code.sf.net/p/paktype/code/Fonts/Deployment/Sura-Fatiha.html

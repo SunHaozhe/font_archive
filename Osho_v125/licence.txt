@@ -1,0 +1,7 @@
+Osho.ttf is based on Gurumaa.ttf (GPL).
+
+It looks very good with AntiAlias enabled in KDE, OpenOffice and in PDF too. Print quality is just amazing!
+Please report any troubles with the font to "fast DOT rizwaan AT gmail DOT com"
+
+licence:
+gpl2, gpl3, free to modify and redistribute; documents/embedding is allowed; only the derivative font is required to be GPLed, not the text documents/images/videos.
