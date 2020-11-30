@@ -1,6 +1,6 @@
 # font_archive
 
-Version 4 (updated on 2020.11.22)
+Version 5 (updated on 2020.11.30)
 
 These fonts (except fonts in `fonts_from_trdg` directory) provide explicit licenses which allow redistribution (under certain conditions), please check their corresponding licenses.
 
